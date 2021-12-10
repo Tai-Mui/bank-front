@@ -39,10 +39,10 @@ export const Login = ({ setClient }) => {
     const handleSubmit = event => {
         event.preventDefault();
         setValidated(true);
-        if (auth.password.length) {
+        if (auth.email.length && auth.password.length) {
             ClientService.loginClient(auth.email, auth.password)
-                .then( data => {
-                    setClient(data.client);
+                .then( res => {
+                    setClient(res.data);
                     dispatchAuth({type: 'SET_DEFAULT'});
                     setValidated(false);
                 })

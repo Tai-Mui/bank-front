@@ -11,8 +11,9 @@ const App = () => {
   return (
     <>
     <h1>Bank App</h1>
-    {(client === null) && <Login setClient={ setClient } />}
-    {client && <Client client={ client } />
+    {(!client && <Login setClient={ setClient } />)
+    ||
+    <Client client={ client } />
 
     }
     </>
