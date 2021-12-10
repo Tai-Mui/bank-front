@@ -66,15 +66,20 @@ export const TransfertInternal = (props) => {
                 <Form.Label column sm="5">Compte à créditer</Form.Label>
                 <Col sm="7">
                     <Form.Select>
-
-                        <option value={}>{}</option>
+                    {
+                        accounts
+                            .filter(account => account.numAccount !== selectedAccount.numAccount)
+                            .map( account => 
+                            <option value={ account.numAccount }>{ account.label }</option>
+                        )
+                    }
                     </Form.Select>
                 </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="validationCustom01">
                 <Form.Label column sm="5">Montant</Form.Label>
                 <Col sm="7">
-                <Form.Control type="text" defaultValue={''} onChange={ handleChangeAmount } />
+                <Form.Control type="text" defaultValue={''} onChange={ handleChangeAmount } ref={ innerRef } />
                 </Col>
             </Form.Group>
             <Form.Group className="d-flex justify-content-end">
