@@ -46,7 +46,7 @@ export const Login = ({ setClient }) => {
                     dispatchAuth({type: 'SET_DEFAULT'});
                     setValidated(false);
                 })
-                .catch(err => dispatchAuth({type: 'SET_ERRMSG', payload: "Connexion échouée"}));
+                .catch(err => dispatchAuth({type: 'SET_ERRMSG', payload: "Echec de connexion: EMAIL et/ou PASSWORD incorrect(s)"}));
         }
     }
 
